@@ -43,7 +43,7 @@ export default class CreateData extends React.Component {
                                                onChange={this.handleChange}/>
                                         </div>
 
-                                        <button type="submit" className="btn btn-success">Save</button>
+                                        <button onClick={this.handleSubmit} className="btn btn-success">Save</button>
                                         {/* <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button> */}
                                     </form>
                                 </div>

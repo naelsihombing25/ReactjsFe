@@ -28,7 +28,7 @@ export default class PersonRemove extends React.Component {
             Person ID:
             <input type="number" name="idbuku" onChange={this.handleChange} />
           </label>
-          <button type="submit">Delete</button>
+          <button type="submit" onClick={this.handleSubmit} >Delete</button>
         </form>
       </div>
     )

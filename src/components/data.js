@@ -1,6 +1,7 @@
 import React from "react";
 import "./data.css";
-import axios from "axios";
+//import axios from "axios";
+import DataService from "../service/DataService";
 
 class data extends React.Component {
    
@@ -9,9 +10,8 @@ class data extends React.Component {
       super(props);
  
       this.state = {
-          items: [],
-          DataisLoaded: false
-      };
+          items: []
+      }
   }
  
   // ComponentDidMount is used to
@@ -33,10 +33,8 @@ class data extends React.Component {
 //   }
   componentDidMount() {
     // GET request using axios with error handling
-    axios.get('http://192.168.43.203:8080/api/buku')
-    .then(res => {
-        const items = res.data;
-        this.setState({items});
+    DataService.get().then(res => {
+        this.setState({items: res.data});
     })
 }
   render() {
@@ -54,9 +52,9 @@ class data extends React.Component {
             <tbody>
                 {
               this.state.items.map(item =>  
-              <tr key = { item.idbuku } >
-                <td>{item.idbuku}</td>
-                <td>{ item.namabuku }</td>
+              <tr key = { item.id } >
+                <td>{item.id}</td>
+                <td>{ item.nama }</td>
                 <td>
                     <button className="btn btn-info">Update</button>
                     <button style={{marginLeft: "10px"}} className="btn btn-danger">Delete</button>
